@@ -28,7 +28,7 @@ body {
   padding: 0;
   transition: background var(--transition-speed), color var(--transition-speed);
   justify-content: center;
-  background-image: url('./img/trivia.jpg'); 
+  background-image: url('./img/trivia.png'); 
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center;
@@ -235,4 +235,49 @@ select {
 label {
   font-weight: 600;
   color: var(--primary-color);
+}
+
+.modal-content {
+  background: var(--background-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-left: 30px;
+  width: 130%;
+  padding: 25px;
+  
+}
+
+/* Encabezado del modal */
+.modal-header {
+  color: var(--primary-color);
+  font-family: 'GameFont', sans-serif;
+  font-size: 25px;
+  border-bottom: 1px solid #000000;
+  cursor: default;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  background-color: #fff5f5;
+  font-family: 'GameFont', sans-serif;
+  font-size: 20px;
+}
+
+/* Pie del modal */
+.modal-footer {
+  background-color: #fff5f5;
+  border-top: 1px solid #000000;
+}
+
+/* Botón de siguiente pregunta */
+.modal-footer .btn-danger {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.modal-footer .btn-danger:hover {
+  background-color: #a0001a;
 }
