@@ -28,7 +28,7 @@ body {
   padding: 0;
   transition: background var(--transition-speed), color var(--transition-speed);
   justify-content: center;
-  background-image: url('./img/trivia.png'); 
+  background-image: url('./img/trivia.jpg'); 
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center;

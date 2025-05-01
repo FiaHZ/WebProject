@@ -3,14 +3,11 @@ import Home from "./pages/Home";
 import Game from "./pages/Game";
 import Results from "./pages/Results";
 import './App.css';
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const App = () => {
-
   return (
-    
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
