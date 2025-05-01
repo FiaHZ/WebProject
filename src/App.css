@@ -1,42 +1,238 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@font-face {
+  font-family: 'GameFont';
+  src: url('./fonts/PixelGame-R9AZe.otf') format('truetype');
+  
+}
+@font-face {
+  font-family: 'Game';
+  src: url('./fonts/GameOver-rvYRK.otf') format('truetype');
+}
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-light: #f8f9fa;
+  --background-dark: #343a40;
+  --text-light: #ffffff;
+  --text-dark: #212529;
+  --correct-answer: #28a745;
+  --wrong-answer: #dc3545;
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  transition: background var(--transition-speed), color var(--transition-speed);
+  justify-content: center;
+  background-image: url('./img/trivia.png'); 
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+ 
+}
+
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background: #ffffff;
+  box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  animation: fadeZoomIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+h1{
+  font-family: 'GameFont', sans-serif;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 85px;
+  height: 100px;
+  cursor: default;
+  animation: fadeZoomIn 1.5s ease-out forwards;
+}
+
+h2, h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'GameFont', sans-serif;
+  font-size: 30px;
+  background: radial-gradient(circle, rgba(42, 123, 155, 1) 0%, rgba(77, 141, 214, 1) 49%, rgba(82, 219, 218, 1) 91%, rgba(82, 222, 218, 1) 100%, rgba(83, 237, 219, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  cursor: default;
+}
+
+p {
+  font-size: 40px;
+  line-height: 1.5;
+  text-align: center;
+  font-family: 'GameFont', sans-serif;
+  cursor: default;
+   animation: fadeZoomIn 1.5s ease-out forwards;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 35px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  display: flex;
+  font-family: 'Game', sans-serif;
+
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.btn-danger {
+  background: var(--wrong-answer);
+  color: var(--text-light);
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+.btn-success {
+  background: var(--correct-answer);
+  color: var(--text-light);
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
+.question {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.options button {
+  width: 100%;
+  padding: 30px;
+  font-size: 18px;
+  background: var(--secondary-color);
+  color: var(--text-light);
+  border-radius: 5px;
+  transition: background var(--transition-speed);
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.options button:hover {
+  background: var(--primary-color);
 }
 
-.card {
-  padding: 2em;
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
 }
 
-.read-the-docs {
-  color: #888;
+.final-score {
+  background: var(--background-dark);
+  color: var(--text-light);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: var(--primary-color);
+}
+
+.alert {
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.alert-danger {
+  background-color: var(--wrong-answer);
+  color: var(--text-light);
+}
+
+.alert-success {
+  background-color: var(--correct-answer);
+  color: var(--text-light);
+}
+
+.social-share {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social-share button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: transform var(--transition-speed);
+}
+
+.social-share button:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+select {
+  padding: 10px 15px;
+  font-size: 25px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin: 0 10px;
+  background-color: #8fa3e7;
+  font-family: 'GameFont', sans-serif;
+  cursor: pointer;
+}
+
+label {
+  font-weight: 600;
+  color: var(--primary-color);
 }
