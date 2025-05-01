@@ -271,7 +271,7 @@ const Game = () => {
           ((correctAnswers / questions.length) * 100).toFixed(1)
         )}
       />
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>¡Incorrecto!</Modal.Title>
         </Modal.Header>
