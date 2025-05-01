@@ -31,6 +31,18 @@ const CategorySelector = () => {
 
     loadCategories();
   }, []);
+  const handleReload = () => {
+    window.location.reload();
+  };
+
+  if (error) {
+    return (
+      <div className="alert alert-danger text-center mt-4">
+        {error}
+        <button onClick={handleReload} className="btn btn-warning mt-2">Volver al Inicio</button>
+      </div>
+    );
+  }
 
   const handleStartGame = () => {
     if (!selectedCategory) {
