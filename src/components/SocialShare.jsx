@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types"; // Importar PropTypes
+import PropTypes from "prop-types"; 
 
 const SocialShare = ({ score, percentage }) => {
   const isValid =
@@ -32,7 +32,7 @@ const SocialShare = ({ score, percentage }) => {
       <div className="d-flex gap-2">
         <a
           href={`https://twitter.com/intent/tweet?text=${encodedText}`}
-          className="btn btn-info" // Color distintivo para Twitter
+          className="btn btn-info" 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Compartir puntuación en Twitter"
@@ -42,8 +42,8 @@ const SocialShare = ({ score, percentage }) => {
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
             appUrl
-          )}&quote=${encodedText}`} // Corrección del parámetro
-          className="btn btn-primary" // Color distintivo para Facebook
+          )}&quote=${encodedText}`} 
+          className="btn btn-primary" 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Compartir puntuación en Facebook"
@@ -52,7 +52,7 @@ const SocialShare = ({ score, percentage }) => {
         </a>
         <a
           href={`https://api.whatsapp.com/send?text=${encodedText}`}
-          className="btn btn-success" // Color distintivo para WhatsApp
+          className="btn btn-success" 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Compartir puntuación en WhatsApp"
