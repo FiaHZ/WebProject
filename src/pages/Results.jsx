@@ -29,15 +29,26 @@ const Results = () => {
           </div>
           <button
             className="btn btn-primary"
-            onClick={() => navigate("/home")}
+            onClick={() => {
+              limpiar();
+              navigate("/home");
+            }}
             aria-label="Volver al inicio"
           >
             Volver al inicio
           </button>
         </div>
       </div>
+      
     );
   }
+
+  const limpiar = () => {
+    sessionStorage.removeItem("questions");
+    sessionStorage.removeItem("translated");
+    
+    navigate("/");
+  };
 
   const percentage = totalQuestions > 0 ? (correctAnswers / totalQuestions) * 100 : 0;
   const formattedPercentage = parseFloat(percentage.toFixed(1));
