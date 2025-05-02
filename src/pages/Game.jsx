@@ -36,8 +36,8 @@ const Game = () => {
 
   // Depuración: Mostrar los valores de category y difficulty al cargar el componente
   useEffect(() => {
-    console.log("📌 Category recibida:", category);
-    console.log("📌 Difficulty recibida:", difficulty);
+    console.log(" Category recibida:", category);
+    console.log(" Difficulty recibida:", difficulty);
   }, [category, difficulty]);
 
 
@@ -55,11 +55,11 @@ const Game = () => {
 
     if (storedQuestions) {
       questions = JSON.parse(storedQuestions);
-      console.log("✅ Preguntas encontradas en sessionStorage:", questions);
+      console.log(" Preguntas encontradas en sessionStorage:", questions);
       setLoadingMessage("Recuperando preguntas guardadas...");
     } else {
       if (!category || !difficulty) {
-        console.error("❌ category o difficulty no definidos.");
+        console.error(" category o difficulty no definidos.");
         setError("Configuración inválida: categoría o dificultad no definida.");
         setIsLoading(false);
         return;
@@ -68,10 +68,10 @@ const Game = () => {
       setLoadingMessage("Descargando preguntas...");
       try {
         questions = await fetchQuestions(category, difficulty);
-        console.log("✅ Preguntas descargadas desde API:", questions);
+        console.log(" Preguntas descargadas desde API:", questions);
         sessionStorage.setItem("questions", JSON.stringify(questions));
       } catch (fetchError) {
-        console.error("❌ Error al obtener preguntas:", fetchError);
+        console.error(" Error al obtener preguntas:", fetchError);
         setError("Error al obtener preguntas.");
         setIsLoading(false);
         return;
@@ -79,7 +79,7 @@ const Game = () => {
     }
 
     if (!Array.isArray(questions) || questions.length === 0) {
-      console.warn("⚠️ No se encontraron preguntas para la categoría y dificultad elegidas.");
+      console.warn(" No se encontraron preguntas para la categoría y dificultad elegidas.");
       setError("No se encontraron preguntas disponibles. Intenta con otra categoría o dificultad.");
       setIsLoading(false);
       return;
@@ -102,7 +102,7 @@ const Game = () => {
         translatedText = await translateText(joinedText);
         setLoadingMessage("Procesando traducción...");
       } catch (translationError) {
-        console.error("❌ Falló la traducción, seguimos en inglés:", translationError);
+        console.error(" Falló la traducción, seguimos en inglés:", translationError);
         setLoadingMessage("Error en traducción, usando textos en inglés...");
         translatedText = joinedText;
       }
@@ -128,7 +128,7 @@ const Game = () => {
       sessionStorage.setItem("translated", "true");
       setLoadingMessage("¡Listo!");
     } catch (err) {
-      console.error("❌ Error al traducir preguntas:", err);
+      console.error(" Error al traducir preguntas:", err);
       setQuestions(questions);
       sessionStorage.setItem("questions", JSON.stringify(questions));
     } finally {
